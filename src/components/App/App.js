@@ -19,7 +19,7 @@ export class App extends Component {
   }
 
   makeUrlPost = (shortUrl) => {
-    if(shortUrl.title && shortUrl.urlToShorten && shortUrl.title.length > shortUrl.urlToShorten > 0) {
+    if(shortUrl.title && shortUrl.urlToShorten && shortUrl.title.length > 0 && shortUrl.urlToShorten > 0) {
       let successful = true
       postUrl(shortUrl)
       .catch(error => {
