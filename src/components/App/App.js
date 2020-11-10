@@ -18,8 +18,20 @@ export class App extends Component {
       .catch(error => console.error('Error fetching data', error))
   }
 
-  makeUrlPost = (shortUrl, title) => {
-    postUrl(shortUrl, title)
+  makeUrlPost = (shortUrl) => {
+    if(shortUrl.title && shortUrl.urlToShorten && shortUrl.title.length > shortUrl.urlToShorten > 0) {
+      let successful = true
+      postUrl(shortUrl)
+      .catch(error => {
+        successful = false;
+        console.error(error)
+      })
+      if(successful) {
+        let urls = this.state.urls
+        urls.push(shortUrl)
+        this.setState({urls: urls})
+      }
+    }
   }
 
   render() {
