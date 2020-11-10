@@ -19,20 +19,20 @@ export class App extends Component {
   }
 
   makeUrlPost = (shortUrl) => {
-    if(shortUrl.title && shortUrl.urlToShorten && shortUrl.title.length > 0 && shortUrl.urlToShorten > 0) {
-      let successful = true
+    // if(shortUrl.title && shortUrl.urlToShorten && shortUrl.title.length > 0 && shortUrl.urlToShorten > 0) {
+    //   let successful = true
       postUrl(shortUrl)
-      .catch(error => {
-        successful = false;
-        console.error(error)
-      })
-      if(successful) {
+      // .catch(error => {
+      //   successful = false;
+      //   console.error(error)
+      // })
+      // if(successful) {
         let urls = this.state.urls
         urls.push(shortUrl)
         this.setState({urls: urls})
       }
-    }
-  }
+
+  
 
   render() {
     return (
